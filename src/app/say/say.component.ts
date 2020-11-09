@@ -20,6 +20,7 @@ export class SayComponent implements OnInit {
   ];
 
   deleteThisQuote(deleteQuote,index){
+    
     if(deleteQuote){
       this.quotes.splice(index ,1)
     }
