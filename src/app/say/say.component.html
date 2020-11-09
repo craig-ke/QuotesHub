@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-md-6">
+        <div *ngFor='let quotes of quotes; let i = index'>
+        <h1>{{quotes.title}}</h1>
+        <p>{{quotes.description}}</p>
+        <a class="btn btn-block btn-success">Like Quote
+            <input class="qty1" name="qty1" readonly="readonly" type="text" value="0" />
+        </a>
+        <a class="btn btn-block btn-success">Dislike Quote
+            <input class="qty2"  name="qty2" readonly="readonly" type="text" value="0" />   
+        </a>
+       <app-say-work [quotes]="quotes" (deleteQuote)='deleteThisQuote($event , i)'></app-say-work>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <app-form></app-form>
+    </div>
+</div>
