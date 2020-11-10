@@ -1,10 +1,31 @@
 <h1>Add Quote</h1>
 <div>
-    <form > 
-        <p>Add Quote here</p>
-        <input type="text" autocomplete="off" placeholder="Enter your name .." class="form-control" id="name" name="name">
-        <input type="text" autocomplete="off" placeholder="Enter your Email@ .." class="form-control"  name="email">
-        <textarea type="text" autocomplete="off" placeholder="Type Quote .." class="form-control" id="message" name="message"> </textarea>
-        <button type="submit" class="btn btn-success btn-block btn-lg">SUBMIT</button>
+    <hr>
+    <form (ngSubmit)='submitQuote()' #quoteForm='ngForm'>
+        <div class="form-group">
+  
+            <label for="author">Name</label>
+            <input type="text" class="form-control" id="author" [(ngModel)]="newQuote.author" name="author" #author='ngModel' required>
+            <div [hidden]="author.valid || author.pristine" class="alert alert-danger">
+              <p>Name is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+  
+            <label for="user">User</label>
+            <textarea class="form-control" id="user" rows="4" [(ngModel)]="newQuote.user" name="user" #user="ngModel" required></textarea>
+            <div [hidden]="user.valid || user.pristine" class="alert alert-danger">
+              <p>User is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+  
+            <label for="day">Day</label>
+            <input type='date' id="day" [(ngModel)]="newQuote.day" name="day" #day="ngModel" required>
+            <div [hidden]="day.valid || day.pristine" class="alert alert-danger">
+              <p>Date is required</p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Add Goal</button>
     </form>
 </div>

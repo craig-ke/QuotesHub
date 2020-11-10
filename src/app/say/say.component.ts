@@ -10,20 +10,32 @@ export class SayComponent implements OnInit {
 
   quotes :Quotes[] = [
     
-    new Quotes('First Quote','If you cant run , walk','Craig OLonyi','10-09-2017'),
-    new Quotes('Second Quote','You never walk alone','Praise OJ','08-08-2015'),
-    new Quotes('Third Quote','Be yourself; everyone else is already taken.','James Joel','1-07-2014'),
-    new Quotes('Fourth Quote','Asiyeskia la mkuu , huvunjika guu','Martin Luther','10-06-2013'),
-    new Quotes('Fifth Quote','Never accept defeat','Donald Trump','19-02-2012'),
-    new Quotes('Sixth Quote','In God we Trust','Jesus Christ','11-11-2011'),
-
+    new Quotes(1,'Bernard Akaka', "The greatest glory in living lies not in never falling, but in rising every time we fall." 
+    , new Date(2020,12,12)),
+    new Quotes(1,'Craig Olonyi', "The way to get started is to quit talking and begin doing.", new Date(2020,12,12)),
+    new Quotes(1,'James Nandi', "If life were predictable it would cease to be life, and be without flavor.", new Date(2020,12,12)),
+    new Quotes(1,'Victor Wanyama', "If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success.", new Date(2020,12,12)),
+    new Quotes(1,'Nelson Mandela', "Life is what happens when you're busy making other plans.", new Date(2020,12,12)),
+  
   ];
-
+  like(index){
+    this.quotes[index].like++;
+  }
+  unlike(index){
+    this.quotes[index].unlike++;
+  }
   deleteThisQuote(deleteQuote,index){
     
     if(deleteQuote){
       this.quotes.splice(index ,1)
     }
+  }
+
+  addNewQuote(quote){
+    let quoteLength = this.quotes.length;
+    quote.author = quoteLength+1;
+    quote.day = new Date(quote.day)
+    this.quotes.push(quote)
   }
   constructor() { }
 
