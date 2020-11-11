@@ -11,6 +11,7 @@ import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     AboutComponent,
     SayComponent,
@@ -18,6 +19,7 @@ import { FormComponent } from './form/form.component';
     FormComponent
   ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
     FormsModule,
