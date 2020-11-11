@@ -33,8 +33,8 @@ export class SayComponent implements OnInit {
 
   addNewQuote(quote){
     let quoteLength = this.quotes.length;
-    quote.author = quoteLength+1;
-    quote.day = new Date(quote.day)
+    quote.id = quoteLength+1;
+    quote.completeDate = new Date(quote.day)
     this.quotes.push(quote)
   }
   constructor() { }
